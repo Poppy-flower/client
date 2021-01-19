@@ -1,5 +1,14 @@
 # client
 
+> 这是新闻demo的客户端
+
+```
+运行方式
+npm install 
+npm run serve
+```
+
+
 ## Project setup
 ```
 yarn install

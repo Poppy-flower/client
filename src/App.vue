@@ -1,19 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <van-tabbar v-model="active">
+      <van-tabbar-item icon="home-o" @click="handleClickHome">首页</van-tabbar-item>
+      <van-tabbar-item icon="plus" @click="handleClickAdd">发布</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import { Tabbar, TabbarItem } from 'vant';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      [Tabbar.name]: Tabbar,
+      [TabbarItem.name]: TabbarItem,
+    },
+    data() {
+      return {
+        active: 0,
+      };
+    },
+    methods: {
+      handleClickHome(){
+        this.$router.push('/');
+      },
+      handleClickAdd(){
+        this.$router.push('/add');
+      }
+    }
   }
-}
 </script>
 
 <style>
